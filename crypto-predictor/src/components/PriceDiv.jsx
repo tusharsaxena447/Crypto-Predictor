@@ -3,13 +3,23 @@ import { useEffect, useState } from "react"
 
 export default function PriceDiv() {
     const [datas, setDatas] = useState(0)
-    useEffect(()=>{
-        fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD')
+    const [curr,setCurr] = useState('USD')
+    
+    useEffect(()=>{ 
+      fetch(`https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=${curr}`)
   .then(response => response.json())
   .then(data => setDatas(data))
   .catch(error => console.error(error));
-    },[])
-    console.log(datas)
+    },[curr])
+  //   setInterval(()=>{
+  //   fetch(`https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=${curr}`)
+  // .then(response => response.json())
+  // .then(data => setDatas(data))
+  // .catch(error => console.error(error));
+  // }
+  //   ,7000)
+  //   console.log(datas)
+    
   return (
     <>
     <div className="container flex flex-col border-4 mt-7 ms-5 p-5  h-[50%] w-[50%]">
@@ -28,17 +38,22 @@ export default function PriceDiv() {
           <select
             id="currency"
             name="currency"
+            onChange={e => setCurr(e.target.value)}
             className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
           >
-            <option>USD</option>
-            <option>CAD</option>
-            <option>EUR</option>
+            <option value={"USD"} >USD</option>
+            <option value={"CAD"}>CAD</option>
+            <option value={"EUR"}>EUR</option>
+            <option value={"INR"}>INR</option>
+            <option value={"JPY"}>JPY</option>
+            <option value={"AUD"}>AUD</option> 
+            <option value={"NZD"}>NZD</option> 
           </select>
         {/* </div> */}
       </div>
     </div>
         </div>
-        <p className="m-1 text-5xl">{datas.USD}</p>
+        <p className="m-1 text-5xl">{datas[curr]? datas[curr] : "Please Wait..."}</p>
     </div>
     </>
   )

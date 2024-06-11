@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 
 import './App.css'
 import SearchAppBar from './components/Search';
 import PriceDiv from './components/PriceDiv';
+import CustomizedTables from './components/Table_data';
 
 function App() {
   // const [datas, setDatas] = useState([])
@@ -12,11 +13,12 @@ function App() {
   // .then(data => console.log(data))
   // .catch(error => console.error(error));
   // },[])
-  // console.log(datas[1])
+  // console.log(datas[])
   return (
     <>
     <SearchAppBar/>
     <PriceDiv/>
+    <CustomizedTables/>
     </>
   )
 }
