@@ -34,6 +34,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
+// eslint-disable-next-line react/prop-types
 export default function CustomizedTables({curr}) {
   function createData(date, high, low, open, close, volume) {
     return {date, high, low, open, close, volume };
