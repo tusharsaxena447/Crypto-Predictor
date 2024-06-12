@@ -8,7 +8,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
-// import { data } from 'autoprefixer';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -31,23 +34,25 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-
-
-
-export default function CustomizedTables() {
+export default function CustomizedTables({curr}) {
   function createData(date, high, low, open, close, volume) {
     return {date, high, low, open, close, volume };
   }
   const [Row,setRow] = useState(0)
+  const [limit, setLimit] =useState(5);
+
+  const handleChange = (event) => {
+    setLimit(event.target.value);
+  };
   useEffect(()=>{
-    fetch('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=7')
+    fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=${curr}&limit=${limit-1}`)
     .then(response => response.json())
     .then((data) => {
       setRow(data)
     })
     .catch(error => console.error(error));
     
-  },[])
+  },[curr,limit])
     
 
   // const rows = [
@@ -67,8 +72,32 @@ export default function CustomizedTables() {
 })
 // console.log(tabledata)
 // console.log(Row.Data)
+
   return (
-    <div className=' w-[50%] m-5'>
+    <>
+    <div className='container lg:w-[50%] flex m-5 items-center justify-between'>
+    {<h2 className='text-2xl font-bold'>Bitcoin Historical Data</h2>}
+    <FormControl sx={{ minWidth: 120 }} size='small'>
+        <InputLabel id="demo-simple-select-helper-label">Limit</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={limit}
+          label="Limit"
+          onChange={handleChange}
+        >
+          
+          <MenuItem value={5}>5</MenuItem>
+          <MenuItem value={10}>10</MenuItem>
+          <MenuItem value={15}>15</MenuItem>
+          <MenuItem value={20}>20</MenuItem>
+          <MenuItem value={25}>25</MenuItem>
+          <MenuItem value={30}>30</MenuItem>
+        </Select>
+        
+      </FormControl>
+    </div>
+    <div className=' lg:w-[50%] m-5'>
     <TableContainer  component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -98,5 +127,6 @@ export default function CustomizedTables() {
       </Table>
     </TableContainer>
     </div>
+    </>
   );
 }

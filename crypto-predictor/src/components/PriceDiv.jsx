@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import CustomizedTables from "./Table_data";
 
 
 export default function PriceDiv() {
@@ -22,7 +23,7 @@ export default function PriceDiv() {
     
   return (
     <>
-    <div className="container flex flex-col border-4 mt-7 ms-5 p-5  h-[50%] w-[50%]">
+    <div className="container flex flex-col border-4 border-[#0e1219] mt-7 ms-5 p-5  h-[50%] lg:w-[50%]">
         <div className="crypto flex justify-between">
         <div className="price">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="" width={'40px'} />
@@ -55,6 +56,8 @@ export default function PriceDiv() {
         </div>
         <p className="m-1 text-5xl">{datas[curr]? datas[curr] : "Please Wait..."}</p>
     </div>
+
+    <CustomizedTables curr={curr}/>
     </>
   )
 }
