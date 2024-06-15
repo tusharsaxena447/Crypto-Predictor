@@ -65,7 +65,8 @@ export default function CustomizedTables({curr}) {
   // ];
   
   // console.log(col)
-  const tabledata = Row && Row.Data.map((e)=>{
+  // console.log(Row.Data && Row.Data.reverse())
+  const tabledata = Row.Data && Row.Data.map((e)=>{
    let date = new Date(e.time*1000)
    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -76,9 +77,9 @@ export default function CustomizedTables({curr}) {
 
   return (
     <>
-    <div className='container lg:w-[50%] flex m-5 items-center justify-between'>
+    <div className='container  flex m-5 items-center justify-between'>
     {<h2 className='text-2xl font-bold'>Bitcoin Historical Data</h2>}
-    <FormControl sx={{ minWidth: 120 }} size='small'>
+    <FormControl sx={{ minWidth: 120, marginRight : "20px" }} size='small'>
         <InputLabel id="demo-simple-select-helper-label">Limit</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -98,7 +99,7 @@ export default function CustomizedTables({curr}) {
         
       </FormControl>
     </div>
-    <div className=' lg:w-[50%] m-5'>
+    <div className='overflow-auto'>
     <TableContainer  component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>

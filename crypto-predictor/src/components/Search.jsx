@@ -1,12 +1,70 @@
 
 
 const Navbar = () => {
+  const cryptoCodes = {
+    "BTC": "Bitcoin",
+    "ETH": "Ethereum",
+    "BNB": "Binance Coin",
+    "XRP": "Ripple",
+    "USDT": "Tether",
+    "ADA": "Cardano",
+    "SOL": "Solana",
+    "DOGE": "Dogecoin",
+    "DOT": "Polkadot",
+    "MATIC": "Polygon",
+    "AVAX": "Avalanche",
+    "LTC": "Litecoin",
+    "LINK": "Chainlink",
+    "BCH": "Bitcoin Cash",
+    "XLM": "Stellar",
+    "UNI": "Uniswap",
+    "ATOM": "Cosmos",
+    "ALGO": "Algorand",
+    "ETC": "Ethereum Classic",
+    "FIL": "Filecoin",
+    "VET": "VeChain",
+    "ICP": "Internet Computer",
+    "TRX": "TRON",
+    "FTT": "FTX Token",
+    "THETA": "Theta",
+    "XTZ": "Tezos",
+    "AAVE": "Aave",
+    "EOS": "EOS.IO",
+    "KSM": "Kusama",
+    "MKR": "Maker",
+    "NEO": "NEO",
+    "CAKE": "PancakeSwap",
+    "ZEC": "Zcash",
+    "GRT": "The Graph",
+    "MANA": "Decentraland",
+    "ENJ": "Enjin Coin",
+    "SUSHI": "SushiSwap",
+    "SNX": "Synthetix",
+    "YFI": "Yearn.finance",
+    "HNT": "Helium",
+    "FTM": "Fantom",
+    "ONE": "Harmony",
+    "CHZ": "Chiliz",
+    "STX": "Stacks",
+    "RUNE": "THORChain",
+    "BAT": "Basic Attention Token",
+    "CEL": "Celsius",
+    "ZEN": "Horizen",
+    "DCR": "Decred",
+    "ONT": "Ontology",
+    "ZIL": "Zilliqa"
+};
+
+// Example usage
+// console.log(cryptoCodes["BTC"]); // Output: Bitcoin
+// console.log(cryptoCodes["ETH"]); // Output: Ethereum
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between  p-4">
         <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" /> */}
-          <span className=" text-2xl font-semibold whitespace-nowrap dark:text-white">Crypto-Predictor</span>
+          <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
+          <span className=" text-2xl font-semibold whitespace-nowrap dark:text-white">Crypto Buddy</span>
         </a>
         <div className="flex md:order-2">
           <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">

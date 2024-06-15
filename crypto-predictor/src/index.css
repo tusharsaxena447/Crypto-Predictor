@@ -73,3 +73,6 @@ button:focus-visible {
   margin: 0px;
   padding: 0px;
 }
+body{
+  background-color: #f7f8fa;
+}

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import CustomizedTables from "./Table_data";
+import Top_news from "./Top_news";
 
 
 export default function PriceDiv() {
     const [datas, setDatas] = useState(0)
     const [curr,setCurr] = useState('USD')
+    
     
     useEffect(()=>{ 
       fetch(`https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=${curr}`)
@@ -23,7 +25,8 @@ export default function PriceDiv() {
     
   return (
     <>
-    <div className="container flex flex-col border-4 border-[#0e1219] mt-7 ms-5 p-5  h-[50%] lg:w-[50%]">
+    <div className="container flex  ">
+    <div className=" border-4 overflow-auto border-[#0e1219] mt-7 ms-5 p-5  h-[80vh] lg:w-[75%] ">
         <div className="crypto flex justify-between">
         <div className="price">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="" width={'40px'} />
@@ -44,6 +47,7 @@ export default function PriceDiv() {
           >
             <option value={"USD"} >USD</option>
             <option value={"CAD"}>CAD</option>
+            <option value={"AED"}>AED</option>
             <option value={"EUR"}>EUR</option>
             <option value={"INR"}>INR</option>
             <option value={"JPY"}>JPY</option>
@@ -55,9 +59,17 @@ export default function PriceDiv() {
     </div>
         </div>
         <p className="m-1 text-5xl">{datas[curr]? datas[curr] : "Please Wait..."}</p>
-    </div>
-
+        <div className="">
     <CustomizedTables curr={curr}/>
+    </div>
+    </div>
+    <div className="overflow-auto  border-4 border-[#0e1219] mt-7 ms-5 h-[80vh] lg:w-[50%] ">
+    <div className="flex h-16 justify-center items-center bg-black font-bold text-3xl text-white sticky top-0">Top News</div>
+    <Top_news curr={curr}/>
+    </div>
+    
+    </div>
+    
     </>
   )
 }
