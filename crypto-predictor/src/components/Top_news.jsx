@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-export default function Top_news({curr}) {
+export default function Top_news() {
   const[datas,setDatas] =  useState(0)
   const[limit,setLimit] = useState(10)
   const[loading,setLoading] = useState(true)

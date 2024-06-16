@@ -3,6 +3,7 @@
 import './App.css'
 import Navbar from './components/Search';
 import PriceDiv from './components/PriceDiv';
+import Social_media from './components/Social_media';
 // import CustomizedTables from './components/Table_data';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <>
     <Navbar/>
     <PriceDiv/>
+    <Social_media/>
     {/* <CustomizedTables/> */}
     </>
   )

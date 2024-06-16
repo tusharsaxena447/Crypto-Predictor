@@ -1,0 +1,90 @@
+import { useEffect } from "react"
+
+
+export default function Social_media() {
+    useEffect(()=>{
+    fetch('https://min-api.cryptocompare.com/data/social/coin/latest?coin=ETH&api_key=d274cf3fd9d1aee99d3f2e6de2edd450d4b8e34c0ef6890b82da9266b2f2a61d')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+    },[])
+
+  return (
+    <>
+    <div className="container">
+        <div className="heading flex justify-center items-center bg-black text-white h-10 mt-5 text-2xl">
+          <span>What&apos;s Going On Social Media</span>  
+        </div>
+        
+
+<div className="relative overflow-x-auto">
+    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" className="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Color
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17
+                </th>
+                <td className="px-6 py-4">
+                    Silver
+                </td>
+                <td className="px-6 py-4">
+                    Laptop
+                </td>
+                <td className="px-6 py-4">
+                    $2999
+                </td>
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Microsoft Surface Pro
+                </th>
+                <td className="px-6 py-4">
+                    White
+                </td>
+                <td className="px-6 py-4">
+                    Laptop PC
+                </td>
+                <td className="px-6 py-4">
+                    $1999
+                </td>
+            </tr>
+            <tr className="bg-white dark:bg-gray-800">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Magic Mouse 2
+                </th>
+                <td className="px-6 py-4">
+                    Black
+                </td>
+                <td className="px-6 py-4">
+                    Accessories
+                </td>
+                <td className="px-6 py-4">
+                    $99
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    </div>
+    
+      
+    </>
+  )
+}

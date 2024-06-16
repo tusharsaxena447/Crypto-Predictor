@@ -65,7 +65,7 @@ export default function PriceDiv() {
     </div>
     <div className="overflow-auto  border-4 border-[#0e1219] mt-7 ms-5 h-[80vh] lg:w-[50%] ">
     <div className="flex h-16 justify-center items-center bg-black font-bold text-3xl text-white sticky top-0">Top News</div>
-    <Top_news curr={curr}/>
+    <Top_news/>
     </div>
     
     </div>
