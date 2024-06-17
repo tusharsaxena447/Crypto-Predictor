@@ -61,9 +61,9 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between  p-4">
-        <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src= "https://c1.tablecdn.com/pa/pa-logo.png" className="h-8" alt="Flowbite Logo" />
+      <div className=" flex flex-wrap items-center justify-between  p-4">
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src= "https://play-lh.googleusercontent.com/vfq-MIn7Z5talHbpfuAULiwOexc53SkmAesLNkq0FPC1AR-fRFIByR-g6yc0TUdRFQ=w240-h480-rw" className="h-10 rounded-full" alt="Flowbite Logo" />
           <span className=" text-2xl font-semibold whitespace-nowrap dark:text-white">Crypto Buddy</span>
         </a>
         <div className="flex md:order-2">

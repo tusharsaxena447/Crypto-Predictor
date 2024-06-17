@@ -95,6 +95,9 @@ export default function CustomizedTables({curr}) {
           <MenuItem value={20}>20</MenuItem>
           <MenuItem value={25}>25</MenuItem>
           <MenuItem value={30}>30</MenuItem>
+          <MenuItem value={92}>3 Months</MenuItem>
+          <MenuItem value={182}>6 Months</MenuItem>
+          <MenuItem value={366}>1 Year</MenuItem>
         </Select>
         
       </FormControl>
