@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-
+import CC from '../media/pa-logo.png'
+import reddit from '../media/reddit.webp'
+import X from '../media/X_logo.jpg'
 
 export default function Social_media() {
     const [datas,setDatas] = useState(0)
@@ -20,7 +22,7 @@ export default function Social_media() {
 
 <div className="flex m-5 justify-evenly">
 <div className="card">
-<img src="https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png" alt="" />
+<img src={X} alt="" />
   <svg viewBox="0 0 24 24" xmlns="https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
   <div className="card__content">
     <p className="card__title">Twitter
@@ -28,7 +30,7 @@ export default function Social_media() {
   </div>
 </div>
 <div className="card">
-<img src="https://logowik.com/content/uploads/images/reddit-icon2825.logowik.com.webp" alt="" />
+<img src={reddit} alt="" />
   <svg viewBox="0 0 24 24" xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJk69iN6ZOn7krG0d_wtH01MR0CIjDuTAGg&s"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
   <div className="card__content">
   {/* <p className="card__title mt-0">Twitter</p> */}
@@ -36,7 +38,7 @@ export default function Social_media() {
   </div>
 </div>
 <div className="card">
-<img src="https://c1.tablecdn.com/pa/pa-logo.png" alt="" />
+<img src={CC} alt="" />
   <svg viewBox="0 0 24 24" xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJk69iN6ZOn7krG0d_wtH01MR0CIjDuTAGg&s"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
   <div className="card__content">
     <p className="card__title">Crypto Compare

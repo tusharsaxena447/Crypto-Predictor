@@ -56,24 +56,12 @@ export default function CustomizedTables({curr}) {
   },[curr,limit])
     
 
-  // const rows = [
-  //   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  //   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  //   createData('Eclair', 262, 16.0, 24, 6.0),
-  //   createData('Cupcake', 305, 3.7, 67, 4.3),
-  //   createData('Gingerbread', 356, 16.0, 49, 3.9),
-  // ];
-  
-  // console.log(col)
-  // console.log(Row.Data && Row.Data.reverse())
   const tabledata = Row.Data && Row.Data.map((e)=>{
    let date = new Date(e.time*1000)
    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
    return createData( `${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}` ,e.high,e.low,e.open,e.close,e.volumefrom)
 })
-// console.log(tabledata)
-// console.log(Row.Data)
 
   return (
     <>
