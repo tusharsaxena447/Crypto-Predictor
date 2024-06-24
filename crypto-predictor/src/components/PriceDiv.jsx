@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import CustomizedTables from "./Table_data";
 import Top_news from "./Top_news";
-
+import { Route, Routes } from "react-router-dom";
+import Chart from "./Chart";
 
 export default function PriceDiv() {
     const [datas, setDatas] = useState(0)
@@ -22,7 +23,9 @@ export default function PriceDiv() {
   // }
   //   ,7000)
   //   console.log(datas)
-    
+  function currencyFormat(num) {
+    return  num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+ }
   return (
     <>
     <div className="container flex  ">
@@ -58,9 +61,13 @@ export default function PriceDiv() {
       </div>
     </div>
         </div>
-        <p className="m-1 text-5xl">{datas[curr]? datas[curr] : "Please Wait..."}</p>
+        <p className="m-1 text-5xl">{datas[curr]? currencyFormat(datas[curr])  : "Please Wait..."}</p>
         <div className="">
-    <CustomizedTables curr={curr}/>
+    <Routes>
+    <Route path="/" element={<CustomizedTables curr={curr}/>} />
+    <Route path='/chart' element={<Chart curr={curr}/>} />
+    
+    </Routes>
     </div>
     </div>
     <div className="overflow-auto  border-4 border-[#0e1219] mt-7 ms-5 h-[80vh] lg:w-[50%] ">

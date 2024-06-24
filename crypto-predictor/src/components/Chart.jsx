@@ -1,17 +1,27 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { useEffect, useState } from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-export default function Chart() {
+
+export default function Chart({curr}) {
     const [Row,setRow] = useState(0)
+    const [limit, setLimit] =useState(5);
+
+  const handleChange = (event) => {
+    setLimit(event.target.value);
+  };
     useEffect(()=>{
-        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10`)
+        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=${curr}&limit=${limit-1}`)
         .then(response => response.json())
         .then((data) => {
           setRow(data)
         })
         .catch(error => console.error(error));
         
-      },[])
+      },[curr,limit])
      const time = []
      const price = []
 
@@ -24,10 +34,35 @@ export default function Chart() {
     //     return e.high
     //   })
       console.log(time)
+      
     //   console.log(price)
         // console.log(Row)
   return (
     <>
+    <div className='container  flex m-5 items-center justify-end'>
+    <FormControl sx={{ minWidth: 120, marginRight : "20px" }} size='small'>
+        <InputLabel id="demo-simple-select-helper-label">Limit</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={limit}
+          label="Limit"
+          onChange={handleChange}
+        >
+          
+          <MenuItem value={5}>5</MenuItem>
+          <MenuItem value={10}>10</MenuItem>
+          <MenuItem value={15}>15</MenuItem>
+          <MenuItem value={20}>20</MenuItem>
+          <MenuItem value={25}>25</MenuItem>
+          <MenuItem value={30}>30</MenuItem>
+          <MenuItem value={92}>3 Months</MenuItem>
+          <MenuItem value={182}>6 Months</MenuItem>
+          <MenuItem value={366}>1 Year</MenuItem>
+        </Select>
+        
+      </FormControl>
+      </div>
      <LineChart
       xAxis={[{ data:  time,
       scaleType: 'time',
@@ -42,7 +77,7 @@ export default function Chart() {
           showMark: false
         },
       ]}
-      width={1500}
+      width={850}
       height={300}
     /> 
     </>
