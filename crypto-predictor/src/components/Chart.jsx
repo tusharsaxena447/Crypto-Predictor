@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-export default function Chart({curr}) {
+export default function Chart({curr,crypto}) {
     const [Row,setRow] = useState(0)
     const [limit, setLimit] =useState(5);
 
@@ -14,14 +14,14 @@ export default function Chart({curr}) {
     setLimit(event.target.value);
   };
     useEffect(()=>{
-        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=${curr}&limit=${limit-1}`)
+        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${crypto}&tsym=${curr}&limit=${limit-1}`)
         .then(response => response.json())
         .then((data) => {
           setRow(data)
         })
         .catch(error => console.error(error));
         
-      },[curr,limit])
+      },[curr,limit,crypto])
      const time = []
      const price = []
 
@@ -30,13 +30,7 @@ export default function Chart({curr}) {
         time.push(date)
         price.push(e.close)
       })
-    //   const price = Row.Data && Row.Data.map((e)=>{
-    //     return e.high
-    //   })
-      console.log(time)
-      
-    //   console.log(price)
-        // console.log(Row)
+
   return (
     <>
     <div className='container  flex m-5 items-center justify-end'>

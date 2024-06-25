@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-export default function Top_news() {
+export default function Top_news({crypto}) {
   const[datas,setDatas] =  useState(0)
   const[limit,setLimit] = useState(10)
   const[loading,setLoading] = useState(true)
@@ -11,14 +11,13 @@ export default function Top_news() {
 
   }
   useEffect(()=>{
-  fetch(`https://min-api.cryptocompare.com/data/news/?categories=BTC`)
+  fetch(`https://min-api.cryptocompare.com/data/news/?categories=${crypto}`)
   .then(response => response.json())
   .then(data => {setDatas(data.slice(0,limit))
     setLoading(false)
   })
   .catch(error => console.error(error));
-  },[limit])
-  // console.log(datas && datas[0].body.split("").splice(0,20).join(""))
+  },[limit,crypto])
   return (
     <>
   {  loading ? <img src="https://i.pinimg.com/originals/c7/e1/b7/c7e1b7b5753737039e1bdbda578132b8.gif" alt="" /> :

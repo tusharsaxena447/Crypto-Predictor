@@ -1,4 +1,3 @@
-
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -35,7 +34,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 // eslint-disable-next-line react/prop-types
-export default function CustomizedTables({curr}) {
+export default function CustomizedTables({curr,crypto}) {
   function createData(date, high, low, open, close, volume) {
     return {date, high, low, open, close, volume };
   }
@@ -46,14 +45,14 @@ export default function CustomizedTables({curr}) {
     setLimit(event.target.value);
   };
   useEffect(()=>{
-    fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=${curr}&limit=${limit-1}`)
+    fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${crypto}&tsym=${curr}&limit=${limit-1}`)
     .then(response => response.json())
     .then((data) => {
       setRow(data)
     })
     .catch(error => console.error(error));
     
-  },[curr,limit])
+  },[curr,limit,crypto])
     
 
   const tabledata = Row.Data && Row.Data.map((e)=>{
@@ -75,8 +74,7 @@ export default function CustomizedTables({curr}) {
           value={limit}
           label="Limit"
           onChange={handleChange}
-        >
-          
+        >         
           <MenuItem value={5}>5</MenuItem>
           <MenuItem value={10}>10</MenuItem>
           <MenuItem value={15}>15</MenuItem>
@@ -86,8 +84,7 @@ export default function CustomizedTables({curr}) {
           <MenuItem value={92}>3 Months</MenuItem>
           <MenuItem value={182}>6 Months</MenuItem>
           <MenuItem value={366}>1 Year</MenuItem>
-        </Select>
-        
+        </Select>       
       </FormControl>
     </div>
     <div className='overflow-auto'>

@@ -1,5 +1,3 @@
-
-
 import './App.css'
 import Navbar from './components/Search';
 import PriceDiv from './components/PriceDiv';
@@ -10,13 +8,9 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-    
-   <PriceDiv/>
-    
-   
+    <Navbar/>    
+    <PriceDiv/>
     <Social_media/>
-
     </>
   )
 }
